@@ -1,0 +1,77 @@
+<div class="main-container">
+  <div class="row">
+     <h4 class="teal-text text-darken-1 center-align">All Question Sets</h4>
+    <a class="btn waves-effect waves-light modal-trigger" ng-click="openAddQuestionSetModal()">Add Question Set</a>
+  </div>
+
+  <div id="AddquestionSet" class="modal">
+    <div class="row">
+      <div class="col s12 m12 l12 input-field">
+        <div class="modal-content">
+          <h5 class="teal-text text-lighten-1 center-align">Click on course to create new question set </h5>
+          <br>
+          <ul class="collection">
+
+            <li ng-repeat="course in courses" class="collection-item"><div ng-click="goToQuestionBank(course.course_id)"><a href="" class="collection-new">{{course.course_name}}</a></div></li>
+          </ul>  
+        </div>
+        <div class="modal-footer">
+          <button class="modal-action modal-close waves-light btn">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <ul id="courses-list">
+      <li ng-repeat="questionSet in questionSets">
+        <div class="col s12 m6 l4">
+          <div class="card white">
+            <div class="card-content teal-text text-darken-1 text-style">
+              <div class="card_meta">
+                <span>{{getCourse(questionSet.course_id).course_name}}</span>
+                <span class="right">{{getCourse(questionSet.course_id).course_number}}</span>
+              </div>
+              
+              <span class="card-title">{{questionSet.question_set_name}}</span>
+              
+              </div>
+               <div class="card-action">
+                  <a href="#!view-questions-for-question-set/{{questionSet.question_set_id}}">View Question Set</a>
+                  <br>
+
+                  <a href="" class="modal-trigger" ng-click="openModalForGeneratePDF(questionSet)">Generate PDF</a>
+                  <div class="section"></div>              
+                <div class="right">
+                    <!-- <a class = "btn-floating waves-effect waves-light teal darken-1" ng-click="deleteQuestionSet(questionSet.question_set_id)" ><i class = "material-icons">edit</i></a> -->
+                   <a class = "btn-floating waves-effect waves-light teal darken-1" ng-click="deleteQuestionSet(questionSet.question_set_id)"><i class = "material-icons">delete</i></a>
+                </div>
+                </div>
+              </div>
+          </div>
+      </li>
+      </ul>
+  </div>
+
+
+<!--   Modal for Generate PDF -->
+  <div id="CreatePdf" class="modal">
+    <div class="row">
+      <div class="col s12 m12 l12 input-field">
+        <div class="modal-content">
+          <div class="section">
+          <h5 class="teal-text text-lighten-1 center-align">Generate Question-Set with/without correct answer</h5>
+          <div class="divider"></div>
+          </div>
+              <div class="modal-content">
+                 <a href="" class="btn waves-effect left" ng-click="generatePDF(false)">Only Question</a> 
+                 <a class="btn waves-effect right" href="" ng-click="generatePDF(true)">With Answer</a>   
+                </div>
+        </div>
+        <div class="modal-footer">
+          <a href="" class="modal-action modal-close btn-floating waves-effect waves-light teal darken-1"><i class="material-icons">close</i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

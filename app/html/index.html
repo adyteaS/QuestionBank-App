@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../css/custom.css">
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="../css/materialize.css"  media="screen,projection"/>
+      
+
+    <title>Question Bank</title>
+  </head>
+  <body ng-app="questionBank">
+
+  	<div ng-controller="NavCtrl">
+		<div class="navbar-fixed" ng-if="coursesExist()">  <!-- ng-if="showNavigation()" -->
+		    <nav>
+		    	<div class="nav-wrapper">
+		      		<a href="#!" class="brand-logo center"><img class="logo" src="../img/uno.jpg" /></a>
+					      <!-- <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a> -->
+					      
+		  			<ul class="side-nav fixed">
+		    			<li><a href="#!courses" class="blue-grey-text text-darken-3">Courses</a></li>
+		    			<li><a href="#!question-sets" class="blue-grey-text text-darken-3">Question Sets</a></li>
+		   				
+		   			</ul> 
+		    	</div>
+		  	</nav>
+		</div>
+		
+	</div>
+
+	<!-- this changes dynamically based on which view is rendered -->
+	<div ng-view></div>
+  	
+  </body>
+   <script src="../renderer.js"></script>
+ 	<script type="text/javascript" src="../jquery-3.2.1.min.js"></script>
+   <script type="text/javascript" src="../materialize.js"></script>
+</html>

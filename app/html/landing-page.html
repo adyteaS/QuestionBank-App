@@ -1,0 +1,23 @@
+
+<div class="section"></div> 
+<div class="navbar-fixed center-align"> 
+  <img class="brand-logo responsive-img" src="../img/uno.jpg"/>
+</div>
+<div class="section"></div>
+<div class="section"></div>
+<div class="section"></div>
+
+<div class="row">
+  <!--welcome text-->
+  <div class="col s12 m12 l12 center-align" ng-if="!coursesExist()">
+    <div>
+      <h1 class="teal-text text-darken-1 text-style">Question Bank</h1>
+      <h4 class="grey-text text-darken-3"> Tool to create and manage Question Bank for your Courses</h4>
+    </div>
+    <div class="section"></div>
+    <h5 class="small teal-text text-darken-1 ">Begin to add your courses</h5>
+    <a href="#!add-course" class="waves-effect waves-light btn">Add Course</a>
+  </div>
+
+  <div ng-include="" src="'courses.html'" ng-if="coursesExist()"></div>
+</div>

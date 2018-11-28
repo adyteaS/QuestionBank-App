@@ -1,0 +1,95 @@
+
+.brand-logo{
+	width: 22em !important; 
+}
+
+ .logo {
+  height: 64px !important;
+  /*margin-top: 21px !important;*/
+}  
+
+.text-style{
+	font-weight: 600;
+}
+
+.main-container{
+	padding-top: 16px;
+	padding-left: 316px;
+	padding-right: 16px;
+}
+
+.nav-wrapper{
+	/*height: 85px !important;*/
+	/*margin-top: -21px;*/
+	background-color: #fff !important;
+	color: #000 !important;
+}
+
+nav{
+	background-color: #fff !important;
+}
+
+.side-nav{ 
+	top:66px !important;
+}
+
+.side-nav li{
+	border-bottom: 1px solid #8c8b8b;
+	box-shadow: 2px 0px 2px #00897b;
+}
+
+.questionlist-card-container{
+	padding-bottom: 4px;
+}
+
+.question{
+	padding-bottom: 8px;
+}
+.question-text{
+	font-size : 16px;
+}
+.question-point{
+	font-size: 12px;
+	font-weight: 600;
+	padding: 0 4px 0 4px;
+
+}
+
+.question-index{
+	font-weight: 600;
+
+}
+
+.correct-answer{
+	padding: 0 64px 0 64px;
+}
+
+
+.collection-new{
+	display: block;
+  	color: #26a69a;
+}
+
+.strong{
+	font-weight: 600;
+}
+
+/*.navbar-material .nav-wrapper .brand-logo .navbar-fixed img {
+    height: 64px !important;
+    width: 8em !important;
+
+}
+*//*.side-nav{
+	top: 100px !important;
+    width: 250px !important;
+}*/
+
+/* header{
+   padding-left: 300px;
+ }
+
+ @media only screen and (max-width : 992px) {
+   header, main, footer {
+     padding-left: 0;
+   }
+ }*/

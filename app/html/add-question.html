@@ -1,0 +1,91 @@
+<div class="main-container">
+<div class="row">
+	<form id="edit-question-form" ng-submit="submit()">
+		<div class="card white">
+			<div class="section"></div>
+			<div class="row">
+				<div class="col s12 m12 l12">
+					<div class="input-field">
+						<input type="text" textid="question_text" ng-model="question.text" class="validate" required="" aria-required="true">
+						<label for="question_text" class="active">Question Text</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12 m12 l12">
+					<h6 class="teal-text text-darken-1">Please select your preferred answer type:</h6>
+					<div>
+						<input type="radio" id="questionType1" name="type" value="text" ng-model="question.type" > <label for="questionType1">Text Answer</label>
+						<input type="radio" id="questionType2" name="type" value="multiple" ng-model="question.type"> <label for="questionType2">Multiple Choice</label>
+						<input type="radio" id ="questionType3" name="type" value="image" ng-model="question.type"> <label for="questionType3">Image</label>
+					</div>
+					<div class="row">
+				        <div class="col s12 m12 l12">
+				          Add points to the question:
+				          <div class="input-field inline">
+				           <input type="text" name="point" ng-model="question.point" class="validate" required="" aria-required="true">
+				            <label for="questionType2">Point</label>
+				          </div>
+				        </div>
+				    </div>
+
+					<div ng-if="showFreeform()" class="input-field">
+						<label for="textarea1">Write a text answer</label>
+						<textarea id="textarea1" class="materialize-textarea" ng-model="textOption.context" class="validate" required="" aria-required="true"></textarea>
+          </div>
+
+					<div ng-if="showOptions()">
+						<br>
+						<h6 class="blue-grey-text text-darken-3">Add Options for the Questions</h6>
+						<ol>
+							<li ng-repeat="option in options">
+								<input type="text" placeholder="Add an answer option..." name="context" ng-model="options[$index].context" class="validate" required="" aria-required="true" />
+
+								<input id="checkFollower" type="checkbox" name="isCorrect" ng-checked="options[$index].isCorrect"><label>Correct Answer<input type="checkbox" ng-model="options[$index].isCorrect"></label>
+
+
+								<!-- <input type="checkbox" name="isCorrect" ng-model="options[$index].isCorrect" value="1" /> <label>Correct Answer</label> -->
+
+								<a class="btn-floating waves-effect waves-light teal darken-1 right" type="button" ng-click="deleteOption($index)"><i class="material-icons">delete</i></a>
+
+							</li>
+						</ol>
+						<a class="btn-floating waves-effect waves-light teal darken-1" type="button" ng-click="addOption()"><i class="material-icons">add</i></a>
+					</div>
+
+					<div ng-if="showImagePicker()">
+						<form method="post" enctype="multipart/form-data">
+						  <div>
+						    <label for="image_uploads">Choose images to upload (PNG, JPG)</label>
+						    <input cus tom-on-change="uploadFile" type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png" multiple>
+						  </div>
+						  <div class="preview">
+								<div ng-if="imagesSelected()">
+									<ul>
+										<li ng-repeat="image in images">
+											<img src="{{image.path}}" style="max-width: 200px;"/>
+										</li>
+									</ul>
+								</div>
+								<div ng-if="!imagesSelected()">
+						    	<p>No files currently selected for upload</p>
+								</div>
+						  </div>
+						</form>
+					</div>
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12 m12 l12">
+				<!-- <a class="waves-effect waves-light btn" type="submit">Add Question</a> -->
+					<button class="waves-effect waves-light btn" type="submit">Add Question</button>
+					<a href="" ng-click="cancel()" class="btn waves-effect right">Cancel</a>
+					<div class="section"></div>
+				</div>
+			</div>
+
+		</div>
+	</form>
+</div>
+</div>

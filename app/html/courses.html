@@ -1,0 +1,56 @@
+<div ng-if="!coursesExist()">
+  <div class="navbar-fixed center-align"> 
+    <img class="brand-logo responsive-img" src="../img/uno.jpg"/>
+  </div>
+  <div class="section"></div>
+  <div class="section"></div>
+  <div class="row">
+    <!--welcome text-->
+    <div class="col s12 m12 l12 center-align" ng-if="!coursesExist()">
+      <div>
+        <h1 class="teal-text text-darken-1 text-style">Question Bank</h1>
+        <h4 class="grey-text text-darken-3"> Tool to create and manage Question Banks for your Courses</h4>
+      </div>
+      <div class="section"></div>
+      <h5 class="small teal-text text-darken-1 ">Begin to add your courses</h5>
+      <a href="#!add-course" class="waves-effect waves-light btn">Add Course</a>
+    </div>
+
+    <div ng-include="" src="'courses.html'" ng-if="coursesExist()"></div>
+  </div>
+</div>
+
+
+
+<div ng-if="coursesExist()">
+  <div class="main-container">
+    <div class="row">
+      <h4 class="center-align teal-text text-darken-1">All Courses</h4>
+      <a href="#!add-course-courses" class="waves-effect waves-light btn">Add Course Card</a>
+    </div>
+    <div class="row">
+      <ul id="courses-list">
+        <li ng-repeat="course in courses">
+          <div class="col s12 m6 l4">
+              <div class="card white">
+                  <div class="card-content teal-text text-darken-1 text-style">
+                  	<div class="card_meta">{{course.course_number}}</div>
+                    	<span class="card-title">{{course.course_name}}</span>
+                  </div>
+                  <div class="card-action">
+                    	<a href="#!questions/{{course.course_id}}">Question Bank</a>
+                      <br>
+                      <a href="#!question-sets/{{course.course_id}}">Question Sets</a>
+                      <div class="section"></div>
+                      <div class="right">
+                        <!-- <a class = "btn-floating waves-effect waves-light teal darken-1" ng-click="deleteCourse(course.course_id)" ><i class = "material-icons">edit</i></a> -->
+                       <a class = "btn-floating waves-effect waves-light teal darken-1" ng-click="deleteCourse(course.course_id)"><i class = "material-icons">delete</i></a>
+                      </div>   
+                  </div>
+              </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
