@@ -1,0 +1,10 @@
+{
+    "laxcomma": true,
+    "laxbreak": true,
+    "smarttabs": true,
+    "trailing": true,
+    "eqeqeq": true,
+    "bitwise": true,
+    "esversion":6,
+		"asi": true
+}
